@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+file="holbertonschool"
+if [ ! -e "$file" ];
+then
+    echo "$file" does not exist
+    exit 0
+fi
+echo "$file" file exists
+if [ ! -s "$file" ];
+then
+    echo "$file" file is empty
+else
+    echo "$file" file is not empty
+fi
+if [ -f "$file" ]
+then
+    echo "$file" is a regular file
+fi
