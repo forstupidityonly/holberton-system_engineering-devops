@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+COUNTER=1
+while [ $COUNTER -lt 21 ];
+do
+    echo "$COUNTER"
+    case $COUNTER in
+        4)
+            echo "bad luck from China"
+            ;;
+        9)
+            echo "bad luck from Japan"
+            ;;
+        17)
+            echo "bad luck from Italy"
+            ;;
+        *)
+            ;;
+    esac
+    (( COUNTER++ )) || true
+done
