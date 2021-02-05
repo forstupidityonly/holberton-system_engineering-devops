@@ -6,6 +6,7 @@ do
     (( COUNTER++ )) || true
 if [ $COUNTER -eq 9 ];
 then
+    echo "Holberton School"
     echo "Hi"
 else
     echo "Holberton School"
