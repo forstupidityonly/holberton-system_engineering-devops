@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 HOUR=0
-while [ $HOUR -lt 13 ];
+while [ $HOUR -le 13 ];
 do
     if [ $HOUR -eq 0 ];
     then
@@ -13,7 +13,10 @@ do
             echo "$MINUTE"
             (( MINUTE++ )) || true
         done
-        echo "Hour: $HOUR"
+        if [ ! $HOUR -eq 13 ];
+        then
+            echo "Hour: $HOUR"
+        fi
     fi
         (( HOUR++ )) || true
 done
