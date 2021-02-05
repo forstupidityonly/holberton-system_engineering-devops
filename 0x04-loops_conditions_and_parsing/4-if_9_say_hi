@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 COUNTER=0
-while [ $COUNTER -lt 11 ];
+while [ $COUNTER -lt 10 ];
 do
     (( COUNTER++ )) || true
 if [ $COUNTER -eq 9 ];
