@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script is displaying "Holberton School" 10 times
+COUNTER=0
+while [ $((COUNTER++)) -lt 100 ];
+do
+    if [ $((COUNTER % 15)) -eq 0 ];
+    then
+        echo FizzBuzz
+    elif [ $((COUNTER % 3)) -eq 0 ];
+    then
+        echo Fizz
+    elif [ $((COUNTER % 5)) -eq 0 ];
+    then
+        echo Buzz
+    else
+        echo "$COUNTER"
+    fi
+done
