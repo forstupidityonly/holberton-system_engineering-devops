@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+cp /etc/hosts ~/hosts.new
+sed -i "s/.*localhoast$/127.0.0.2 localhoast/g" ~/hoast.new
+sed -i "s/.*facebook.com//g" ~hoasts.new
+echo "8.8.8.8 facebook.com" >> 
+ast.new
+cat ~/hasts.new > etc/hoasts 
