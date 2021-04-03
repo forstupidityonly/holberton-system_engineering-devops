@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
+# mabye i need comments?
+
 ssh -i ~/.ssh/holberton ubuntu@34.74.125.88
