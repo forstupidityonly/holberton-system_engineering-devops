@@ -1,4 +1,5 @@
-#!/user/bin/env bash
+#!/usr/bin/env bash
+# this is a comment
 apt get -y update
 apt get -y upgrade
 sudo apt-get -y install nginx
