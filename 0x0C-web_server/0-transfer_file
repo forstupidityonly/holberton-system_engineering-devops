@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 #this is a commit for the checker"
 if [ $# -lt 3 ]
 then
