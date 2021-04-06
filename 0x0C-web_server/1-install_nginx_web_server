@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # this is a comment
-apt get -y update
-apt get -y upgrade
-sudo apt-get -y install nginx
-echo "Holberton School" | sudo tee /var/www/html/index.html
-sudo service nginx restart
 
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo service nginx start
