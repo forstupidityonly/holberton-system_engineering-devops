@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# a comment
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo service nginx start
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+
+string="server_name 1820.tech;\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.youtube.com\/watch\?v=QH2-TGUlwu4;\n\t}\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+
+sudo sed -i "s/server_name _;/$string/" /etc/nginx/sites-available/default
+sudo service nginx restart
