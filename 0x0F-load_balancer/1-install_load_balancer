@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# comment
+sudo apt-get -y update
+sudo apt-get -y install haproxy=1.6.\*
+file=/etc/haproxy/haproxy.cfg
+sudo echo -e "frontend haproxy
+\tbind *:80
+\tmode http
+\tdefault_backend nodes" | sudo tee -a $file
+sudo echo -e "backend nodes
+\tmode http
+\tbalance roundrobin
+\toption forwardfor
+\thttp-request set-header X-Forwarded-Port %[dst_port]
+\tserver 1820-web-01 104.196.51.56:80 check
+\tserver 1820-web-02 3.80.126.68:80 check" | sudo tee -a $file
+sudo service haproxy restart
+
