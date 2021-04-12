@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 # comment
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -11,4 +11,4 @@ string="server_name 1820.tech;\n\tlocation \/redirect_me {\n\t\treturn 301 https
 sudo sed -i "s/server_name _;/$string/" /etc/nginx/sites-available/default
 
 
-service nginx restart
+sudo service nginx restart
