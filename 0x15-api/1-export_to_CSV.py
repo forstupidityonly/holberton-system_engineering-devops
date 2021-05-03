@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """given employee ID, returns information about his/her TODO list"""
-from sys import argv
+import csv
 import requests
+from sys import argv
 
 if __name__ == "__main__":
     user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])
@@ -15,8 +16,8 @@ if __name__ == "__main__":
         if task.get('completed') is True:
             completed.append(task.get('title'))
 
-    print('Employee {} is done with tasks({}/{}):'.format(
-                            emp_name, len(completed), len(tasks)))
+    print('Employee {} is done with tasks({}/{}):'.format(emp_name,
+                                                          len(completed), len(tasks)))
     if len(completed) > 0:
         for task in completed:
             print("\t {}".format(task))
