@@ -24,4 +24,3 @@ if __name__ == "__main__":
             vals.append("{}".format(task.get('completed')))
             vals.append("{}".format(task.get('title')))
             my_writer.writerow(vals)
-
