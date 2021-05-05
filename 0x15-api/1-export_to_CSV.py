@@ -10,14 +10,18 @@ if __name__ == "__main__":
         argv[1])
     emp = requests.get(user_url).json()
     emp_name = emp.get('name')
-    completed = []
+    emp_id = emp.get('id')
+    print(emp_name)
     tasks = requests.get(user_todo).json()
-    for task in tasks:
-        if task.get('completed') is True:
-            completed.append(task.get('title'))
+    csv_file = "{}.csv".format(argv[1])
 
-    print('Employee {} is done with tasks({}/{}):'.format(emp_name,
-                                                          len(completed), len(tasks)))
-    if len(completed) > 0:
-        for task in completed:
-            print("\t {}".format(task))
+    for task in tasks:
+        with open(csv_file, 'a', newline='') as file:
+            my_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+            vals = []
+            vals.append("{}".format(sys.argv[1]))
+            vals.append("{}".format(emp_name))
+            vals.append("{}".format(task.get('completed')))
+            vals.append("{}".format(task.get('title')))
+            my_writer.writerow(vals)
+
