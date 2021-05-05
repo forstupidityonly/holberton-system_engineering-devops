@@ -9,8 +9,9 @@ if __name__ == "__main__":
     user_todo = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
         argv[1])
     emp = requests.get(user_url).json()
-    emp_name = emp.get('name')
+    emp_name = emp.get('username')
     emp_id = emp.get('id')
+    print(emp_name)
     tasks = requests.get(user_todo).json()
     csv_file = "{}.csv".format(argv[1])
 
