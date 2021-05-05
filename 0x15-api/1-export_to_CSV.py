@@ -11,7 +11,6 @@ if __name__ == "__main__":
     emp = requests.get(user_url).json()
     emp_name = emp.get('name')
     emp_id = emp.get('id')
-    print(emp_name)
     tasks = requests.get(user_todo).json()
     csv_file = "{}.csv".format(argv[1])
 
@@ -19,7 +18,7 @@ if __name__ == "__main__":
         with open(csv_file, 'a', newline='') as file:
             my_writer = csv.writer(file, quoting=csv.QUOTE_ALL)
             vals = []
-            vals.append("{}".format(sys.argv[1]))
+            vals.append("{}".format(argv[1]))
             vals.append("{}".format(emp_name))
             vals.append("{}".format(task.get('completed')))
             vals.append("{}".format(task.get('title')))
