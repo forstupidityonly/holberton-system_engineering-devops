@@ -12,14 +12,14 @@ if __name__ == "__main__":
     emp_name = emp.get('username')
     tasks = requests.get(user_todo).json()
     json_file = "{}.json".format(argv[1])
-    mylist = []
-    todo_dict = {}
+    todo_list = []
+    mydict = {}
     with open(json_file, 'w') as f:
         for task in tasks:
-            mydict = {}
-            mydict['username'] = emp_name
-            mydict['task'] = task.get('title')
-            mydict['completed'] = task.get('completed')
-            mylist.append(mydict)
-        todo_dict[argv[1]] = mylist
+            task_dict = {}
+            task_dict['username'] = emp_name
+            task_dict['task'] = task.get('title')
+            task_dict['completed'] = task.get('completed')
+            todo_list.append(task_dict)
+        mydict[argv[1]] = todo_list
         json.dump(mydict, f, indent=2)
