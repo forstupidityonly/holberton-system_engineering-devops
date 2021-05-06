@@ -11,10 +11,10 @@ if __name__ == "__main__":
     json_file = 'todo_all_employees.json'
     mydict = {}
     for i in users:
-        usr_todo = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format
-        (i.get('id'))
+        u_todo = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
+        i.get('id'))
         emp = i.get('username')
-        tasks = requests.get(usr_todo).json()
+        tasks = requests.get(u_todo).json()
         todo_list = []
         with open(json_file, 'w') as f:
             for task in tasks:
