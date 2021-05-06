@@ -12,7 +12,7 @@ if __name__ == "__main__":
     mydict = {}
     for i in users:
         u_todo = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(
-        i.get('id'))
+            i.get('id'))
         emp = i.get('username')
         tasks = requests.get(u_todo).json()
         todo_list = []
