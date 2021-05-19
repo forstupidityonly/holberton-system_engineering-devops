@@ -1,14 +1,18 @@
 #!/usr/bin/python3
 """get subs"""
 import requests
+import sys
 
 
-def number_of_subscribers(subreddit):
-    """get subs"""
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+def top_ten(subreddit):
+    """top ten post"""
+    url = "https://www.reddit.com/r/{}/top/.json?limit=10".format(subreddit)
     sub = requests.get(url, headers={"User-Agent": "Custom"})
-
     if (sub.status_code == 200):
-        return sub.json().get("data").get("subscribers")
+       val = sub.json().get("data").get("children")
+       for post in val:
+           my_dict = post["data"]
+           print(my_dict.get('title'))
     else:
-        return (0)
+       print("None")
+       return
