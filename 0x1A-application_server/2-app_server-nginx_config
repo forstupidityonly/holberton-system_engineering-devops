@@ -15,11 +15,9 @@
 #
 server {
 	listen 80 default_server;
-location /hbnb_static {alias /data/web_static/current/;}
-
-
-error_page 404 /404.html;
 	listen [::]:80 default_server;
+	add_header X-Served-By "$HOSTNAME";
+	error_page 404 /404.html;
 
 	# SSL configuration
 	#
@@ -46,7 +44,13 @@ error_page 404 /404.html;
 	location /redirect_me {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
-
+	location /airbnb-onepage {
+		proxy_pass https://0.0.0.0:5000/airbnb-onepage;
+	}
+	location /hbnb_static {
+		alias /data/web_static/current/;
+		autoindex off;
+	}
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
@@ -91,3 +95,4 @@ error_page 404 /404.html;
 #		try_files $uri $uri/ =404;
 #	}
 #}
+
